@@ -50,7 +50,7 @@ class RoleController extends Controller
     public function show($id)
     {
         $role            = Role::findOrFail($id);
-        $rolePermissions = Permission::join('role_has_permissions', 'role_has_permission.permission_id', '=', 'permissions.id')
+        $rolePermissions = Permission::join('role_has_permissions', 'role_has_permissions.permission_id', '=', 'permissions.id')
             ->where('role_has_permissions.role_id', $id)
             ->get();
 

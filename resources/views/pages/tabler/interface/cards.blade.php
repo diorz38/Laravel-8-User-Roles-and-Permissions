@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-master-layout>
     <div class="page-wrapper">
         <div class="container-xl">
             <!-- Page title -->
@@ -40,7 +40,7 @@
                                             neque pariatur perferendis sed suscipit velit vitae voluptatem.</p>
                                     </div>
                                     <div class="card-img-bottom img-responsive img-responsive-16by9"
-                                        style="background-image: url(./static/photos/56614e12b2a7bd68.jpg)"></div>
+                                        style="background-image: url({{ asset('static/photos/56614e12b2a7bd68.jpg') }})"></div>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -447,7 +447,7 @@
                                 <div class="card">
                                     <div class="row row-0">
                                         <div class="col-3">
-                                            <img src="./static/photos/2854fd67ddbd6217.jpg"
+                                            <img src="{{ asset('static/photos/2854fd67ddbd6217.jpg') }}"
                                                 class="w-100 h-100 object-cover" alt="Card side image">
                                         </div>
                                         <div class="col">
@@ -465,7 +465,7 @@
                                 <div class="card">
                                     <div class="row row-0">
                                         <div class="col-3 order-md-last">
-                                            <img src="./static/photos/de6d0fd1feebb6a2.jpg"
+                                            <img src="{{ asset('static/photos/de6d0fd1feebb6a2.jpg') }}"
                                                 class="w-100 h-100 object-cover" alt="Card side image">
                                         </div>
                                         <div class="col">
@@ -505,7 +505,7 @@
                                             <div class="col-12">
                                                 <div class="card">
                                                     <div class="card-img-top img-responsive img-responsive-16by9"
-                                                        style="background-image: url(./static/photos/9f36332564ca271d.jpg)">
+                                                        style="background-image: url({{ asset('static/photos/9f36332564ca271d.') }}jpg)">
                                                     </div>
                                                     <div class="card-body">
                                                         <h3 class="card-title">Card with top image</h3>
@@ -732,4 +732,4 @@
         </div>
         <x-tabler.footer />
     </div>
-</x-app-layout>
+</x-master-layout>

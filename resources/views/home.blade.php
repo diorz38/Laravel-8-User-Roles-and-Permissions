@@ -15,7 +15,10 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    {{ Auth::user()->roles }}
+                    {{ Auth::user()->name }}<br>
+                    @foreach (Auth::user()->getPermissionsViaRoles() as $item)
+                    {{$item->name }},
+                    @endforeach
                 </div>
             </div>
         </div>

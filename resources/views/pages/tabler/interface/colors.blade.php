@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-master-layout>
     <div class="page-wrapper">
         <div class="container-xl">
             <!-- Page title -->
@@ -320,4 +320,4 @@
     </div>
     @push('before-scripts')
     @endpush
-</x-app-layout>
+</x-master-layout>

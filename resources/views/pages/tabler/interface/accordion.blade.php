@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-master-layout>
     <div class="page-wrapper">
         <div class="container-xl">
             <!-- Page title -->
@@ -104,4 +104,4 @@
         </div>
         <x-tabler.footer/>
     </div>
-</x-app-layout>
+</x-master-layout>

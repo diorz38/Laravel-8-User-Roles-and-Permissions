@@ -6,13 +6,17 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "calebporzio/sushi": "^2.2",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "infureal/artisan-gui": "2.0.0@beta",
+        "lab404/laravel-impersonate": "^1.7",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "laravelcollective/html": "^6.2",
+        "livewire/livewire": "^2.5",
         "spatie/laravel-permission": "^4.2"
     },
     "require-dev": {
@@ -38,7 +42,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

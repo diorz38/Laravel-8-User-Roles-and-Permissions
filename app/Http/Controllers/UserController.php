@@ -11,10 +11,20 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index', 'show']]);
+        $this->middleware('permission:user-list', ['only' => ['index', 'show']]);
+        $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+    }
+
     public function index(Request $request)
     {
-        $data = User::orderby('id', 'DESC')->paginate(5);
-        return view('users.index', compact('data'))
+        $data = User::orderby('id', 'ASC')->paginate(5);
+        $roles = Role::pluck('name', 'name')->all();
+        return view('users.index', compact('data','roles'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -55,6 +65,8 @@ class UserController extends Controller
         $roles    = Role::pluck('name', 'name')->all();
         $userRole = $user->roles->pluck('name', 'name')->all();
 
+        // return $roles;
+
         return view('users.edit', compact('user', 'roles', 'userRole'));
     }
 
@@ -68,6 +80,8 @@ class UserController extends Controller
         ]);
 
         $inputs = $request->all();
+        // return $inputs;
+
         if (!empty($inputs['password'])) {
             $inputs['password'] = Hash::make($inputs['password']);
         } else {
@@ -79,7 +93,7 @@ class UserController extends Controller
         $user->assignRole($request->input('roles'));
 
         return redirect()->route('users.index')
-            ->with('success', 'User Updated Successfully');
+            ->with('success', 'Data Pengguna berhasil diperbaharui');
     }
 
     public function destroy($id)

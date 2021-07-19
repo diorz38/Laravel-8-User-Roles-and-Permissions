@@ -19,6 +19,11 @@
                     @foreach (Auth::user()->getPermissionsViaRoles() as $item)
                     {{$item->name }},
                     @endforeach
+                    <img src="{{ asset('static/maps.svg') }}"
+                    {{-- width="110" height="32"  --}}
+                    alt="Tabler"
+                    class="navbar-brand-image">
+
                 </div>
             </div>
         </div>
